@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: broadgame
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: broadgame
+  template:
+    metadata:
+      labels:
+        app: broadgame
+    spec:
+      containers:
+      - name: broadgame
+        image: 884290636224.dkr.ecr.us-east-1.amazonaws.com/broadgame:latest
+        ports:
+        - containerPort: 8080

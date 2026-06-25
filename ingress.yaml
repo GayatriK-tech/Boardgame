@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: broadgame-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: broadgame.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: broadgame-service
+            port:
+              number: 80
